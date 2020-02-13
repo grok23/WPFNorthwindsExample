@@ -133,18 +133,28 @@ namespace WPFNorthwindsExample
             }
 
             db.SaveChanges();
-            ShowProducts(DGCustomersEx6);
+            ShowProducts(DGCustomersEx7);
 
         }
 
+        //to delete items 
         private void btnQueryEx8_Click(object sender, RoutedEventArgs e)
         {
+            var products = from p in db.Products
+                           where p.ProductName.StartsWith("Kick")
+                           select p;
 
+            db.Products.RemoveRange(products);
+            db.SaveChanges();
+            ShowProducts(DGCustomersEx8);
         }
 
+        //using a sproc
         private void btnQueryEx9_Click(object sender, RoutedEventArgs e)
         {
+            var query = db.Customers_By_City("London");
 
+            DGCustomersEx9.ItemsSource = query.ToList();
         }
     }
 
