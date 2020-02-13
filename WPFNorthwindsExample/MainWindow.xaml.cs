@@ -26,6 +26,8 @@ namespace WPFNorthwindsExample
         {
             InitializeComponent();
         }
+
+        //shows products on a datagrid
         private void ShowProducts(DataGrid currentGrid)
         {
             var query = from p in db.Products
@@ -41,6 +43,7 @@ namespace WPFNorthwindsExample
             currentGrid.ItemsSource = query.ToList();
         }
 
+        //shows customer names
         private void btnQueryEx1_Click(object sender, RoutedEventArgs e)
         {
             var query = from c in db.Customers
@@ -48,6 +51,7 @@ namespace WPFNorthwindsExample
             lbxCustomersEx1.ItemsSource = query.ToList();
         }
 
+        //retrieves customer objects
         private void btnQueryEx2_Click(object sender, RoutedEventArgs e)
         {
             var query = from c in db.Customers 
@@ -55,6 +59,7 @@ namespace WPFNorthwindsExample
             DGCustomersEx2.ItemsSource = query.ToList();
         }
 
+        //retrieves order information
         private void btnQueryEx3_Click(object sender, RoutedEventArgs e)
         {
             var query = from o in db.Orders
@@ -71,6 +76,7 @@ namespace WPFNorthwindsExample
             DGCustomersEx3.ItemsSource = query.ToList().Distinct();
         }
 
+        //displays product information
         private void btnQueryEx4_Click(object sender, RoutedEventArgs e)
         {
             var query = from p in db.Products
@@ -86,6 +92,7 @@ namespace WPFNorthwindsExample
             DGCustomersEx4.ItemsSource = query.ToList();
         }
 
+        //inserts information to a table
         private void btnQueryEx5_Click(object sender, RoutedEventArgs e)
         {
             Product p = new Product()
@@ -100,6 +107,7 @@ namespace WPFNorthwindsExample
             ShowProducts(DGCustomersEx5);
         }
 
+        //updates product information
         private void btnQueryEx6_Click(object sender, RoutedEventArgs e)
         {
             Product p1 = (db.Products
@@ -112,8 +120,20 @@ namespace WPFNorthwindsExample
             ShowProducts(DGCustomersEx6);
         }
 
+        //makes updates to multiple products
         private void btnQueryEx7_Click(object sender, RoutedEventArgs e)
         {
+            var products = from p in db.Products
+                           where p.ProductName.StartsWith("Kick")
+                           select p;
+
+            foreach (var item in products)
+            {
+                item.UnitPrice = 100m;
+            }
+
+            db.SaveChanges();
+            ShowProducts(DGCustomersEx6);
 
         }
 
