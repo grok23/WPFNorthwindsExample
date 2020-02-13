@@ -48,6 +48,56 @@
                     <DataGrid Name="DGCustomersEx4" Grid.Row="1" Grid.Column="0"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Ex5"  Width="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnQueryEx5" Content="Query5" Height="25" Width="75" Click="btnQueryEx5_Click"/>
+                    <DataGrid Name="DGCustomersEx5" Grid.Row="1" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ex6"  Width="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnQueryEx6" Content="Query6" Height="25" Width="75" Click="btnQueryEx6_Click"/>
+                    <DataGrid Name="DGCustomersEx6" Grid.Row="1" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ex7"  Width="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnQueryEx7" Content="Query7" Height="25" Width="75" Click="btnQueryEx7_Click"/>
+                    <DataGrid Name="DGCustomersEx7" Grid.Row="1" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ex8"  Width="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnQueryEx8" Content="Query8" Height="25" Width="75" Click="btnQueryEx8_Click"/>
+                    <DataGrid Name="DGCustomersEx8" Grid.Row="1" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ex9"  Width="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnQueryEx9" Content="Query9" Height="25" Width="75" Click="btnQueryEx9_Click"/>
+                    <DataGrid Name="DGCustomersEx9" Grid.Row="1" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

@@ -26,6 +26,20 @@ namespace WPFNorthwindsExample
         {
             InitializeComponent();
         }
+        private void ShowProducts(DataGrid currentGrid)
+        {
+            var query = from p in db.Products
+                        where p.Category.CategoryName.Equals("Beverages")
+                        orderby p.ProductID descending
+                        select new
+                        {
+                            p.ProductID,
+                            p.ProductName,
+                            p.Category.CategoryName,
+                            p.UnitPrice
+                        };
+            currentGrid.ItemsSource = query.ToList();
+        }
 
         private void btnQueryEx1_Click(object sender, RoutedEventArgs e)
         {
@@ -70,6 +84,47 @@ namespace WPFNorthwindsExample
                             p.UnitPrice
                         };
             DGCustomersEx4.ItemsSource = query.ToList();
+        }
+
+        private void btnQueryEx5_Click(object sender, RoutedEventArgs e)
+        {
+            Product p = new Product()
+            {
+                ProductName = "Kickapoo Jungle Joy Juice",
+                UnitPrice = 12.49m,
+                CategoryID = 1
+            };
+            db.Products.Add(p);
+            db.SaveChanges();
+
+            ShowProducts(DGCustomersEx5);
+        }
+
+        private void btnQueryEx6_Click(object sender, RoutedEventArgs e)
+        {
+            Product p1 = (db.Products
+                .Where(p => p.ProductName.StartsWith("Kick"))
+                .Select(p => p)).First();
+
+            p1.UnitPrice = 100m;
+
+            db.SaveChanges();
+            ShowProducts(DGCustomersEx6);
+        }
+
+        private void btnQueryEx7_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnQueryEx8_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnQueryEx9_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
